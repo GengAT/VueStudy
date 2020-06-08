@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:keydown 键盘按下</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<input type="text" v-on:keydown="fun($event)">
+<!--			<input type="text" onkeydown="showKeyCode()">-->
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			methods:{
+				/**
+				 * $event vue中的事件对象
+				 */
+				fun:function (event) {
+					var keyCode = event.keyCode;
+					if(keyCode<48||keyCode>57)// 只能按数值
+					event.preventDefault()
+				}
+			}
+		});
+
+
+
+
+		// 传统方式
+		// function showKeyCode() {
+		// 	var keyCode = event.keyCode;
+		// if(keyCode==13)
+		// 	alert("按的为回车")
+		// }
+	</script>
+	
+	
+
+</html>
